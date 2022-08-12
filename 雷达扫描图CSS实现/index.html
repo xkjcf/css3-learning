@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, silver, black);
+        }
+
+        .radar {
+            width: calc(8em + 1.5em);
+            height: calc(8em + 1.5em);
+            background:
+                linear-gradient(90deg,
+                    transparent 49.75%,
+                    darkgreen 49.75%,
+                    darkgreen 50.25%,
+                    transparent 50.25%),
+                linear-gradient(transparent 49.75%,
+                    darkgreen 49.75%,
+                    darkgreen 50.25%,
+                    transparent 50.25%),
+                repeating-radial-gradient(transparent 0,
+                    transparent 0.95em,
+                    darkgreen 0.95em,
+                    darkgreen 1em),
+                linear-gradient(black, black);
+            font-size: 40px;
+            position: relative;
+            border-radius: 50%;
+        }
+
+        .radar::before {
+            content: "";
+            position: absolute;
+            width: calc(8em / 2);
+            height: calc(8em / 2);
+            /* border: 1px solid white; */
+            background: linear-gradient(45deg,
+                    rgba(0, 0, 0, 0) 50%,
+                    rgba(0, 192, 0, 1) 100%);
+            border-radius: 100% 0 0 0;
+            top: calc(1.5em / 2);
+            left: calc(1.5em / 2);
+            animation: scanning 5s linear infinite;
+            transform-origin: 100% 100%;
+        }
+
+        @keyframes scanning {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="radar"></div>
+</body>
+
+</html>
